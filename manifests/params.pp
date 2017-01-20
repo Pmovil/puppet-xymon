@@ -28,12 +28,8 @@ class xymon::params {
 
     case $::osfamily {
       'Debian'           : {
-        if ($::architecture == 'amd64') {
-          $default_client_package_file = 'http://downloads.sourceforge.net/project/xymon/Xymon/4.3.17/xymon-client_4.3.17_amd64.deb'
-        } else {
-          $default_client_package_file = 'http://downloads.sourceforge.net/project/xymon/Xymon/4.3.17/xymon-client_4.3.17_i386.deb'
-        }
-        $default_client_package_provider = 'dpkg'
+        $default_client_package_file = 'xymon-client'
+        $default_client_package_provider = 'apt'
       }
       'RedHat': {
         case $::operatingsystem {
