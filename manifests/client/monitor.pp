@@ -31,9 +31,9 @@ define xymon::client::monitor (
     source => $cmd_file_source,
   }
   
-  if($cfg_file_content and $cfg_file_source){
+  if($cfg_file_content != '' and $cfg_file_source){
     fail('Only one configuration file is permitted for monitors. Choose one between $cfg_file_content and $cfg_file_source')
-  } elsif($cfg_file_content){
+  } elsif($cfg_file_content != ''){
     file { "${::xymon::params::default_client_etc_dir}/${name}.cfg":
       ensure  => 'file',
       notify  => Class['::xymon::client::service'],
