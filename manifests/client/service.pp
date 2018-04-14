@@ -8,7 +8,6 @@ class xymon::client::service {
   service { 'xymon-client':
     ensure     => running,
     enable     => true,
-    hasstatus  => false,
     hasrestart => true,
   }
 }
